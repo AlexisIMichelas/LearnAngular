@@ -1,0 +1,20 @@
+<div class="user-profile">
+  <img [src]="user.photo" alt="User Photo">
+  <form (ngSubmit)="submitForm()">
+    <div>
+      <label for="quote">Citation:</label>
+      <input type="text" id="quote" [(ngModel)]="user.quote" name="quote">
+    </div>
+    <button type="submit">Soumettre</button>
+  </form>
+  <div *ngIf="submittedQuote"> <!-- Affiche seulement si submittedQuote est défini -->
+    <p>Citation soumise : {{ submittedQuote }}</p>
+  </div>
+  <div>
+    <p *ngIf="!ReadMore">Âge: {{ user.age }}</p>
+    <button type="button" (click)="hideAge()">
+      {{ ReadMore ? "Masquer l'âge" : "Afficher l'âge" }}
+    </button>
+  </div>
+  <p>{{ user.firstName }} {{ user.name }}</p>
+</div>
