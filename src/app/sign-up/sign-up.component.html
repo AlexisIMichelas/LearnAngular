@@ -1,1 +1,32 @@
-<h1>Se connecter</h1>
+<form #signUpForm="ngForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <label for="firstname">Prénom</label>
+    <input id="firstname" name="firstname" type="text" [(ngModel)]="newUser.firstname" required minlength="3" maxlength="15">
+    <div *ngIf="submitted && signUpForm.controls['firstname'].errors?.['required']">Le prénom est requis</div>
+    <div *ngIf="submitted && signUpForm.controls['firstname'].errors?.['minlength']">Le prénom doit comporter au moins 3 caractères</div>
+    <div *ngIf="submitted && signUpForm.controls['firstname'].errors?.['maxlength']">Le prénom ne doit pas dépasser 15 caractères</div>
+  </fieldset>
+
+  <fieldset>
+    <label for="lastname">Nom de famille</label>
+    <input id="lastname" name="lastname" type="text" [(ngModel)]="newUser.lastname" required minlength="3" maxlength="15">
+    <div *ngIf="submitted && signUpForm.controls['lastname'].errors?.['required']">Le nom de famille est requis</div>
+    <div *ngIf="submitted && signUpForm.controls['lastname'].errors?.['minlength']">Le nom de famille doit comporter au moins 3 caractères</div>
+    <div *ngIf="submitted && signUpForm.controls['lastname'].errors?.['maxlength']">Le nom de famille ne doit pas dépasser 15 caractères</div>
+  </fieldset>
+
+  <fieldset>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" [(ngModel)]="newUser.email" required email>
+    <div *ngIf="submitted && signUpForm.controls['email'].errors?.['required']">L'email est requis</div>
+    <div *ngIf="submitted && signUpForm.controls['email'].errors?.['email']">L'email est invalide</div>
+  </fieldset>
+
+  <fieldset>
+    <label for="password">Mot de passe</label>
+    <input id="password" name="password" type="password" [(ngModel)]="newUser.password" required>
+    <div *ngIf="submitted && signUpForm.controls['password'].errors?.['required']">Le mot de passe est requis</div>
+  </fieldset>
+
+  <button type="submit">S'inscrire</button>
+</form>
