@@ -8,6 +8,7 @@ import { BlockComponent } from './block/block.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MenuComponent } from './menu/menu.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { MyFormComponent } from './my-form/my-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     BlockComponent,
     UserProfileComponent,
     MenuComponent,
-    SignUpComponent
+    SignUpComponent,
+    MyFormComponent
   ],
   imports: [
     BrowserModule,
