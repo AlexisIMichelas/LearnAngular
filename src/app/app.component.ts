@@ -12,6 +12,8 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
+  title = 'LearnAngular';
+  
   onomatopoeiaList: string[] = ['Boom', 'Bang', 'Crash'];
 
   onReceiveNewOnomatopia(newOnomatopia: string) {
