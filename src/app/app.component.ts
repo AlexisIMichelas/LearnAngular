@@ -2,10 +2,21 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <h1>Liste des onomatopées</h1>
+    <ul>
+      <li *ngFor="let onomatopoeia of onomatopoeiaList">{{ onomatopoeia }}</li>
+    </ul>
+    <hr>
+    <app-create-onomatopia (sendOnomatopiaToParent)="onReceiveNewOnomatopia($event)"></app-create-onomatopia>
+  `
 })
 export class AppComponent {
-  name: string = 'Alexis';
-  title: string = `Bienvenue sur le site de ${this.name} !`;
+  title = 'LearnAngular';
+  
+  onomatopoeiaList: string[] = ['Boom', 'Bang', 'Crash'];
+
+  onReceiveNewOnomatopia(newOnomatopia: string) {
+    this.onomatopoeiaList.push(newOnomatopia);
+  }
 }

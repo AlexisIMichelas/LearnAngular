@@ -1,6 +1,7 @@
 // user-profile.component.ts
 import { Component } from '@angular/core';
-import { User } from './user.interface'; // Import de l'interface User
+import { User } from './user.interface';
+// Import de l'interface User
 
 @Component({
   selector: 'app-user-profile',
