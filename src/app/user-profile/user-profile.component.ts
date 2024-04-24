@@ -1,6 +1,6 @@
 // user-profile.component.ts
 import { Component } from '@angular/core';
-import { User } from './user.interface';
+import { User2 } from './user.interface';
 // Import de l'interface User
 
 @Component({
@@ -9,7 +9,7 @@ import { User } from './user.interface';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent {
-  user: User = { // Utilisation de l'interface User pour typer l'objet user
+  user: User2 = { // Utilisation de l'interface User pour typer l'objet user
     name: 'Doe',
     firstName: 'John',
     age: 25,
