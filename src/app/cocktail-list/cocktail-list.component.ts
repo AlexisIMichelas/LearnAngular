@@ -1,20 +1,17 @@
-// cocktail-list.component.ts
-import { Component, OnInit } from '@angular/core';
-import { Cocktail, CocktailService } from '../cocktail.service';
+import { Component } from '@angular/core';
+import { CocktailService } from '../cocktail.service';
+import { Cocktail } from '../models/cocktail.model';
 
 @Component({
   selector: 'app-cocktail-list',
   templateUrl: './cocktail-list.component.html',
-  styleUrls: ['./cocktail-list.component.css']
+  styleUrl: './cocktail-list.component.css'
 })
-export class CocktailListComponent implements OnInit {
+export class CocktailListComponent {
 
-  cocktails: Cocktail[] = [];
+  public cocktails:Array<Cocktail> = [];
 
-  constructor(private cocktailService: CocktailService) { }
-
-  ngOnInit(): void {
-    this.cocktails = this.cocktailService.getCocktails();
+  constructor(private service: CocktailService){
+    this.service.getCocktails().subscribe(cocktails => this.cocktails = cocktails);
   }
-
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../models/register.model';
+import { User2 } from '../models/register.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,7 +7,7 @@ import { User } from '../models/register.model';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  newUser: User = {
+  newUser: User2 = {
     firstname: '',
     lastname: '',
     email: '',
