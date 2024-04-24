@@ -1,25 +1,16 @@
-// cocktail.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cocktail } from './models/cocktail.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CocktailService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getCocktails(): Cocktail[] {
-    return [
-      { nom: 'Mojito', prix: 8.5, image: 'mojito.jpg' },
-      { nom: 'Cosmopolitan', prix: 9.0, image: 'cosmopolitan.jpg' },
-      { nom: 'Margarita', prix: 7.5, image: 'margarita.jpg' }
-      // Ajoutez autant de cocktails que vous le souhaitez
-    ];
+  getCocktails(): Observable<Cocktail[]> {
+    return this.http.get<Cocktail[]>('assets/cocktails.json');
   }
-}
-
-export interface Cocktail {
-  nom: string;
-  prix: number;
-  image: string;
 }
